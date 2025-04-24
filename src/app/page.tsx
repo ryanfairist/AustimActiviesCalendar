@@ -4,7 +4,7 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ActivityFilter } from "@/components/activity-filter";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+// import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface Activity {
   month: string;
@@ -128,13 +128,13 @@ export default function Home() {
                 <CardDescription>{activity.title}</CardDescription>
               </CardHeader>
               <CardContent>
-                <AspectRatio ratio={16 / 9}>
+                {/*<AspectRatio ratio={16 / 9}>*/}
                   <img
                     src={`https://picsum.photos/400/225?random=${activity.month}`}
                     alt={activity.title}
                     className="object-cover rounded-md"
                   />
-                </AspectRatio>
+                {/*</AspectRatio>*/}
                 <p className="text-sm text-muted-foreground mt-2">{activity.description}</p>
                 <p className="text-xs mt-2">
                   Materials: {activity.materials.join(", ")}
