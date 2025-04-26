@@ -8,11 +8,11 @@ body {
 
 @layer base {
   :root {
-    --background: 48 100% 93%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
+    --background: 53 87% 92%; /*#fefed4*/
+    --foreground: 201 21% 26%;
+    --card: 33 33% 88%;
     --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
+    --popover: 33 33% 88%;
     --popover-foreground: 0 0% 3.9%;
     --primary: 207 67% 77%; /* Soft blue */
     --primary-foreground: 0 0% 98%;
@@ -21,7 +21,7 @@ body {
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
     --accent: 48 100% 70%; /* Yellow */
-    --accent-foreground: 0 0% 9%;
+    --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
@@ -46,7 +46,7 @@ body {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card-foreground: 0 0% 9%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 207 67% 77%; /* Soft blue */
@@ -55,7 +55,7 @@ body {
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 48 100% 70%; /* Yellow */
+    --accent: 48 100% 70%; 
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -68,6 +68,8 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --sidebar-background: 240 5.9% 10%;
+    --primary: 300 100% 55%;
+    --secondary: 215 100% 67%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -86,3 +88,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
