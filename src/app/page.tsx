@@ -151,6 +151,11 @@ export default function Home() {
       </main>
       <footer className="px-4 py-3 text-center text-sm text-muted-foreground border-t">
         <p>© {currentDate ? currentDate.getFullYear() : 'Loading...'} Autism Activities Calendar</p>
+         <p className="text-center text-[12px] mt-2">
+          The information provided on this website is for general informational
+          purposes only and is not intended to be a substitute for
+          professional medical advice, diagnosis, or treatment. We are not
+          medical professionals. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding autism or any medical condition.</p>
       </footer>
     </div>
   );
