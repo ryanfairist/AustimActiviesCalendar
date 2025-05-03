@@ -117,7 +117,7 @@ export default function Home() {
   }, [filter]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col bg-background">
       <header className="px-4 py-6 text-center"> {/* Added text-center */}
         <h1 className="text-3xl font-bold text-foreground">Autism Activities Calendar</h1>
         <p className="text-muted-foreground">Fun activities for high-functioning autistic preschool children</p>
