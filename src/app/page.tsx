@@ -4,6 +4,7 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ActivityFilter } from "@/components/activity-filter";
+import Link from "next/link"; // Import the Link component
 
 interface Activity {
   month: string;
@@ -127,24 +128,26 @@ export default function Home() {
         <ScrollArea className="h-[calc(100vh-240px)]"> {/* Adjusted height */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredActivities.map((activity) => (
-            <Card key={activity.month} className="hover:shadow-lg transition-shadow duration-300 rounded-lg overflow-hidden">
-              <CardHeader className="pb-2">
+            <Link key={activity.month} href={`/activity/${activity.month}`}>
+            <Card  className="hover:shadow-lg transition-shadow duration-300 rounded-lg overflow-hidden">
+                <CardHeader className="pb-2">
                 <CardTitle>{activity.month}</CardTitle>
-                <CardDescription>{activity.title}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                  <img
-                    src={`https://picsum.photos/400/225?random=${activity.month}`}
-                    alt={activity.title}
-                    className="object-cover rounded-md w-full h-48" // Ensured consistent image size
-                    data-ai-hint={`${activity.category} ${activity.title}`}
-                  />
-                <p className="text-sm text-muted-foreground mt-3">{activity.description}</p>
-                <p className="text-xs mt-2 font-medium">
-                  Materials: <span className="font-normal">{activity.materials.join(", ")}</span>
-                </p>
-              </CardContent>
+                    <CardDescription>{activity.title}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <img
+                        src={`https://picsum.photos/400/225?random=${activity.month}`}
+                        alt={activity.title}
+                        className="object-cover rounded-md w-full h-48"
+                        data-ai-hint={`${activity.category} ${activity.title}`}
+                    />
+                    <p className="text-sm text-muted-foreground mt-3">{activity.description}</p>
+                    <p className="text-xs mt-2 font-medium">
+                        Materials: <span className="font-normal">{activity.materials.join(", ")}</span>
+                    </p>
+                </CardContent>
             </Card>
+        </Link>
           ))}
         </div>
         </ScrollArea>
