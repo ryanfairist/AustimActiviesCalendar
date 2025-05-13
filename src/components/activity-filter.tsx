@@ -12,14 +12,14 @@ export const ActivityFilter: React.FC<ActivityFilterProps> = ({ setFilter }) => 
       <Button variant="outline" onClick={() => setFilter(null)} className="rounded-full">
         All
       </Button>
-      <Button variant="outline" onClick={() => setFilter("Sensory")} className="rounded-full">
-        Sensory
+      <Button variant="outline" onClick={() => setFilter("Arts & Crafts")} className="rounded-full">
+        Arts & Crafts
       </Button>
-      <Button variant="outline" onClick={() => setFilter("Motor Skills")} className="rounded-full">
-        Motor Skills
+      <Button variant="outline" onClick={() => setFilter("Culinary")} className="rounded-full">
+        Culinary
       </Button>
-      <Button variant="outline" onClick={() => setFilter("Creative")} className="rounded-full">
-        Creative
+      <Button variant="outline" onClick={() => setFilter("Outside")} className="rounded-full">
+        Outside
       </Button>
     </div>
   );
