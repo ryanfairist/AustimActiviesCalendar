@@ -2,12 +2,14 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react"; // Import useState
 import { useParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { Input } from "@/components/ui/input"; // Import Input
+import { Calendar } from "@/components/ui/calendar"; // Import Calendar
 
 interface Activity {
   month: string;
@@ -20,98 +22,106 @@ interface Activity {
 const activities: Activity[] = [
   {
     month: "January",
-    title: "Sensory Bin",
-    description: "Create a sensory bin with rice and small toys.",
-    category: "Sensory",
-    materials: ["Rice", "Small toys", "Bin"],
+    title: "Penguin Bags for the Homeless",
+    description: "Use Penguin stickers to decorate bags and fill them with sorted items for the homeless",
+    category: "Arts & Crafts",
+    materials: ["Penguin stickers", "Bags", "Ribbon", "Snacks", "Toiletries","Socks"],
   },
   {
     month: "February",
-    title: "Obstacle Course",
-    description: "Set up a simple obstacle course in your living room.",
-    category: "Motor Skills",
-    materials: ["Pillows", "Blankets", "Tape"],
+    title: "Poptart St Valentine's Houses",
+    description: "Build St. Valentine's houses out of Poptarts",
+    category: "Culinary",
+    materials: ["Plates", "Buttercream Icing", "Poptarts", "Light weight small candies"],
   },
   {
     month: "March",
-    title: "Drawing with Crayons",
-    description: "Encourage drawing with large crayons.",
-    category: "Creative",
-    materials: ["Large crayons", "Paper"],
+    title: "Irish Pasta Making",
+    description: "Making homemade Irish flag colored pasta",
+    category: "Culinary",
+    materials: ["Flower", "Food coloring", "Eggs", "Rolling Pin", "Optional- Mixer with pasta cutter"],
   },
   {
     month: "April",
-    title: "Bubble Time",
-    description: "Playing with bubbles.",
-    category: "Sensory",
-    materials: ["Bubbles", "Bubble wand"],
+    title: "Resurrection Gardens",
+    description: "Use flower pots to make a garden from seeds and gathered twigs from outside",
+    category: "Outside",
+    materials: ["flower pot", "soil", "sunflower or grass seeds", "stones", "string","twigs"],
   },
   {
     month: "May",
-    title: "Stacking Cups",
-    description: "Stacking Cups for motor skills.",
-    category: "Motor Skills",
-    materials: ["Cups"],
+    title: "Farm Fruit and Vegetable picking",
+    description: "Visit a farm that has strawberry and Asparugus picking",
+    category: "Outside",
+    materials: ["basket","sunblock","sunhat"],
   },
   {
     month: "June",
-    title: "Coloring Book",
-    description: "Coloring Book Fun.",
-    category: "Creative",
-    materials: ["Coloring Book", "Crayons"],
+    title: "Car Show",
+    description: "Visit the Auto parts store and then go to a car show",
+    category: "Outside",
+    materials: ["traspertation"],
   },
   {
     month: "July",
-    title: "Water Play",
-    description: "Water Play activities.",
-    category: "Sensory",
-    materials: ["Water", "Toys"],
+    title: "American Flag Sancastles",
+    description: "Build little sancastle on the beach and put mini American flags in them",
+    category: "Outside",
+    materials: ["Beach Sand", "shovel", "mini American flags on sticks"],
   },
   {
     month: "August",
-    title: "Ball Pit",
-    description: "Ball Pit activities.",
-    category: "Motor Skills",
-    materials: ["Ball Pit balls"],
+    title: "Vist the Pet Store",
+    description: "Visit the pet store and look at all the animals, their food, and habitat needs",
+    category: "Outside",
+    materials: ["Transportation"],
   },
   {
     month: "September",
-    title: "Finger Painting",
-    description: "Finger Painting activity.",
-    category: "Creative",
-    materials: ["Paint", "Paper"],
+    title: "Puppet Show",
+    description: "Use  puppets to put on a puppet show at home",
+    category: "Arts & Crafts",
+    materials: ["puppets", "Fun voices"],
   },
   {
     month: "October",
-    title: "Leaf Pile",
-    description: "Leaf Pile activity.",
-    category: "Sensory",
-    materials: ["Leaves"],
+    title: "Pumpkin Patch Farm visit",
+    description: "Visit at pumpkin patch on a farm and see the different size pumpkins and  farm animals",
+    category: "Outside",
+    materials: ["Transportation"], // Corrected spelling
   },
   {
     month: "November",
-    title: "Bean Bag Throw",
-    description: "Bean Bag Throw activity.",
-    category: "Motor Skills",
-    materials: ["Bean Bags"],
+    title: "Shop at a Craft Fair",
+    description: "Walk through a carf fair and ask the child to describe the gifts on the table and incurrage them to ask questions to the vendors",
+    category: "Outside",
+    materials: ["Transportation"],
   },
   {
     month: "December",
-    title: "Snow Angel",
-    description: "Snow Angel activity.",
-    category: "Creative",
-    materials: ["Snow"],
+    title: "Make Christmas Cards",
+    description: "Make Christmas cards and go out to the stores and public places to give them out to people",
+    category: "Arts & Crafts",
+    materials: ["Paper", "Crayons","Stickets","Envelopes"],
   },
 ];
 
 export default function ActivityPage() {
   const { month } = useParams();
+  const [zipCode, setZipCode] = useState(""); // State for zip code
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined); // State for selected date
 
   const activity = activities.find((activity) => activity.month === month);
 
   if (!activity) {
     return <div>Activity not found</div>;
   }
+
+  const handleWeatherLookup = () => {
+    // Placeholder for weather API call
+    console.log("Looking up weather for:", zipCode, "on", selectedDate);
+    // Here you would typically make an API call to a weather service
+  };
 
   return (
     <div className="p-4">
@@ -130,6 +140,7 @@ export default function ActivityPage() {
           <p className="mt-2 font-medium">
             Materials: <span className="font-normal">{activity.materials.join(", ")}</span>
           </p>
+
         </CardContent>
       </Card>
     </div>

@@ -4,6 +4,7 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ActivityFilter } from "@/components/activity-filter";
+import { Button } from "@/components/ui/button"; // Import the Button component
 import Link from "next/link"; // Import the Link component
 
 interface Activity {
@@ -125,10 +126,19 @@ export default function Home() {
       </header>
       <main className="flex-1 p-4">
         <ActivityFilter setFilter={setFilter} />
+
+        {/* Add the new button here */}
+        <div className="mt-4 text-center mb-[60px]"> {/* Add some top margin and center the button */}
+          <Link href="/song">
+            <Button variant="outline" size="default"> {/* Changed variant and size */}
+              Learn Your Name with a Song
+            </Button>
+          </Link>
+        </div>
         <ScrollArea className="h-[calc(100vh-240px)]"> {/* Adjusted height */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredActivities.map((activity) => (
-            <Link key={activity.month} href={`/activity/${activity.month}`}>
+            <Link key={activity.month} href={`/activity/${activity.month}`} className="cursor-pointer">
             <Card  className="hover:shadow-lg transition-shadow duration-300 rounded-lg overflow-hidden">
                 <CardHeader className="pb-2">
                 <CardTitle>{activity.month}</CardTitle>
