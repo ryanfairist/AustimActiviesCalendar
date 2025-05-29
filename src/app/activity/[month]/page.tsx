@@ -124,17 +124,18 @@ export default function ActivityPage() {
   };
 
   return (
+    
     <div className="p-4">
         <Link href={"/"}>
       <Button variant={"ghost"} size={"icon"}>
           <ArrowLeft/>
       </Button>
         </Link>
+        <div className="h-[300px] bg-white flex flex-col justify-center items-center"> {/* New div with styles */}
+        <h1 className="text-center text-[42px]">{activity.month}</h1> {/* Your existing h1 */}
+        <h3>{activity.title}</h3>
+      </div>
       <Card className="mt-4">
-        <CardHeader>
-          <CardTitle>{activity.month}</CardTitle>
-          <CardDescription>{activity.title}</CardDescription>
-        </CardHeader>
         <CardContent>
           <p>{activity.description}</p>
           <p className="mt-2 font-medium">
