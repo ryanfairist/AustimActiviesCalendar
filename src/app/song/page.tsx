@@ -57,9 +57,9 @@ export default function SongGeneratorPage() {
           onChange={(e) => setName(e.target.value)}
           style={{ marginRight: '10px', padding: '8px' }}
         />
-        <button onClick={generateSong} style={{ padding: '8px 15px' }} disabled={isLoading}> {/* Disable button while loading */}
+        <Button onClick={generateSong} disabled={isLoading}> {/* Disable button while loading */}
           {isLoading ? 'Generating...' : 'Generate Song'} {/* Button text changes based on loading */}
-        </button>
+        </Button>
       </div>
 
       {error && ( // Display error message if there's an error
