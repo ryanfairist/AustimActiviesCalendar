@@ -111,7 +111,9 @@ export default function ActivityPage() {
   const [zipCode, setZipCode] = useState(""); // State for zip code
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined); // State for selected date
 
-  const activity = activities.find((activity) => activity.month === month);
+  const activity = activities.find(
+    (activity) => typeof month === 'string' && activity.month.toLowerCase() === month.toLowerCase()
+  );
 
   if (!activity) {
     return <div>Activity not found</div>;
